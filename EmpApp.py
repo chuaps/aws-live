@@ -140,8 +140,18 @@ def FetchEmp():
         db_conn.commit()
         results = cursor.fetchall()   
 
-    except:
-        print ("Error: unable to fecth data")
+    @app.route("/listemp", methods=['POST'])
+def FetchEmp():
+    fetch_sql = "SELECT * FROM employee"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(fetch_sql)
+        db_conn.commit()
+        results = cursor.fetchall()   
+
+    finally:
+        cursor.close()
 
     return render_template('ListEmp.html', results=results)
 
