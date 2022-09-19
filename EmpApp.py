@@ -130,20 +130,5 @@ def FetchEmp():
     print("Employee Searched")
     return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=object_url)
 
-@app.route("/listemp", methods=['POST'])
-def FetchEmp():
-    fetch_sql = "SELECT * FROM employee"
-    cursor = db_conn.cursor()
-
-    try:
-        cursor.execute(fetch_sql)
-        db_conn.commit()
-        results = cursor.fetchall()   
-
-    except:
-        print ("Error: unable to fecth data")
-
-    return render_template('ListEmp.html', result=result)
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
