@@ -87,12 +87,12 @@ def GetEmp():
 @app.route("/fetchemp", methods=['POST'])
 def FetchEmp():
     emp_id = request.form['emp_id']
-   
+
     fetch_sql = "SELECT * FROM employee where emp_id = %s"
     cursor = db_conn.cursor()
 
     try:
-        cursor.execute(fetch_sql,(emp_id))
+        cursor.execute(fetch_sql, (emp_id))
         db_conn.commit()
         results = cursor.fetchall()
         for row in results:
@@ -101,13 +101,12 @@ def FetchEmp():
             last_name = row[2]
             pri_skill = row[3]
             location = row[4]
-            emp_image_file = row[5]
-
+            
     except:
         print ("Error: unable to fecth data")    
 
     print("Employee Searched")
-    return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, imageurl=emp_image_file)
+    return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location)
 
 
 if __name__ == '__main__':
