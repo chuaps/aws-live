@@ -130,7 +130,7 @@ def FetchEmp():
     print("Employee Searched")
     return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=object_url)
 
-@app.route("/listemp", methods=['POST'])
+@app.route("/listemp", methods=['GET'])
 def ListEmp():
     fetch_sql = "SELECT * FROM employee"
     cursor = db_conn.cursor()
