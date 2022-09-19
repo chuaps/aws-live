@@ -82,9 +82,37 @@ def AddEmp():
 
 @app.route("/getemp", methods=['POST'])
 def GetEmp():
-
-
     return render_template('GetEmp.html')
+
+@app.route("/fetchemp", methods=['POST'])
+def FetchEmp():
+    emp_id = request.form['emp_id']
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    pri_skill = request.form['pri_skill']
+    location = request.form['location']
+    emp_image_file = request.files['emp_image_file']
+
+    fetch_sql = "SELECT * FROM employee \ WHERE emp_id = %s"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(fetch_sql)
+        results = cursor.fetchall()
+        for row in results:
+            emp_id = row[0]
+            first_name = row[1]
+            last_name = row[2]
+            pri_skill = row[3]
+            location = row[4]
+            emp_image_file = row[5]
+
+    except:
+        print ("Error: unable to fecth data")    
+
+    print("Employee Searched")
+    return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, imageurl=emp_image_file)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
