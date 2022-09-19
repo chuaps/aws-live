@@ -40,7 +40,7 @@ def AddEmp():
     location = request.form['location']
     emp_image_file = request.files['emp_image_file']
 
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
@@ -48,7 +48,7 @@ def AddEmp():
 
     try:
 
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location, emp_image_file))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
@@ -101,11 +101,13 @@ def FetchEmp():
             last_name = row[2]
             pri_skill = row[3]
             location = row[4]
+            emp_image_file = row[5]
 
         s3 = boto3.resource('s3')
+        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
 
         try:
-            emp_image_file_name_in_s3 = s3.Bucket(custombucket).get_object(Key=emp_image_file_name_in_s3)
+            s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
             s3_location = (bucket_location['LocationConstraint'])
 
