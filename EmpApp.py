@@ -138,19 +138,12 @@ def FetchEmp():
     try:
         cursor.execute(fetch_sql)
         db_conn.commit()
-        results = cursor.fetchall()
-        for row in results:
-            emp_id = row[0]
-            first_name = row[1]
-            last_name = row[2]
-            pri_skill = row[3]
-            location = row[4]
-            
+        results = cursor.fetchall()   
 
     except:
         print ("Error: unable to fecth data")
 
-    return render_template('ListEmp.html', emp_id=emp_id, first_name=first_name, last_name=last_name, pri_skill=pri_skill, location=location)
+    return render_template('ListEmp.html', result=result)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
