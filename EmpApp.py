@@ -87,17 +87,13 @@ def GetEmp():
 @app.route("/fetchemp", methods=['POST'])
 def FetchEmp():
     emp_id = request.form['emp_id']
-    first_name = request.form['first_name']
-    last_name = request.form['last_name']
-    pri_skill = request.form['pri_skill']
-    location = request.form['location']
-    emp_image_file = request.files['emp_image_file']
-
+   
     fetch_sql = "SELECT * FROM employee where emp_id = %s"
     cursor = db_conn.cursor()
 
     try:
         cursor.execute(fetch_sql,(emp_id))
+        db_conn.commit()
         results = cursor.fetchall()
         for row in results:
             emp_id = row[0]
