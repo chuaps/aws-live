@@ -97,7 +97,7 @@ def FetchEmp():
     cursor = db_conn.cursor()
 
     try:
-        cursor.execute(fetch_sql)
+        cursor.execute(fetch_sql,(emp_id))
         results = cursor.fetchall()
         for row in results:
             emp_id = row[0]
