@@ -138,12 +138,18 @@ def ListEmp():
     try:
         cursor.execute(fetch_sql)
         db_conn.commit()
-        results = cursor.fetchall()   
+        results = cursor.fetchall()
+        for row in results:
+            emp_id = row[0]
+            first_name = row[1]
+            last_name = row[2]
+            pri_skill = row[3]
+            location = row[4]   
 
     finally:
         cursor.close()
 
-    return render_template('ListEmp.html', results=results)
+    return render_template('ListEmp.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
