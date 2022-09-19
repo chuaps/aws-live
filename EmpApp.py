@@ -93,7 +93,7 @@ def FetchEmp():
     location = request.form['location']
     emp_image_file = request.files['emp_image_file']
 
-    fetch_sql = "SELECT * FROM employee \ WHERE emp_id = %s"
+    fetch_sql = "SELECT * FROM employee where emp_id = %s"
     cursor = db_conn.cursor()
 
     try:
