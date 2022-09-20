@@ -26,6 +26,7 @@ body{
 /* Style the links inside the navigation bar */
 .topnav button {
     float: left;
+    background-color: #333;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
@@ -40,7 +41,7 @@ body{
 }
   
 /* Add a color to the active/current link */
-.topnav button.active {
+.topnav a.active {
     background-color: red;
     color: white;
 }
