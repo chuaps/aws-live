@@ -38,7 +38,7 @@ def ToAddEmp():
 # Redirect Remove Employee
 @app.route("/toRemEmp", methods=['GET', 'POST'])
 def ToRemEmp():
-    return render_template('AddEmp.html')
+    return render_template('RemEmp.html')
 
 # Redirect Search Employee
 @app.route("/toGetEmp", methods=['POST'])
