@@ -167,10 +167,12 @@ def RemEmp():
         cursor.execute(fetch_sql, (emp_id))
         db_conn.commit()
 
+        rowcount = cursor.rowcount
+
     finally:
         cursor.close()  
 
-    return render_template('RemoveSuccessful.html')
+    return render_template('RemoveSuccessful.html', rowcount=rowcount)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
