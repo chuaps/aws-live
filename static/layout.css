@@ -116,4 +116,21 @@ label {
   clear: both;
 }
 
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 20px;
+  width: 200px;
+  margin: 5px;
+}
+
+.button:hover {
+  border: #f4511e;
+    background-color: #FFFFFF; 
+    color: #f4511e;
+}
+
 
