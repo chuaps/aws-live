@@ -139,20 +139,12 @@ def ListEmp():
         cursor.execute(fetch_sql)
         db_conn.commit()
         results = cursor.fetchall()
-        for row in results:
-            emp_id = row[0]
-            first_name = row[1]
-            last_name = row[2]
-            pri_skill = row[3]
-            location = row[4]
-            return render_template('ListEmp.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location)
-        
-        return render_template('ListEmp.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location)       
+                 
 
     except:
         print ("Error: unable to fecth data")
-    
-    
+
+    return render_template('ListEmp.html', results=results)
     
 
 @app.route("/rememp", methods=['POST'])
