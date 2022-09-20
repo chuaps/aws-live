@@ -149,7 +149,22 @@ def ListEmp():
     finally:
         cursor.close()
 
-    return render_template('ListEmp.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location)
+    return render_template('ListEmp.html', emp_id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location)
+
+@app.route("/rememp", methods=['POST'])
+def RemEmp():
+    emp_id = request.form['emp_id']
+    fetch_sql = "DELETE FROM employee WHERE emp_id = %s"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(fetch_sql, (emp_id))
+        db_conn.commit()
+
+    finally:
+        cursor.close()  
+
+    return render_template('RemoveSuccessful.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
