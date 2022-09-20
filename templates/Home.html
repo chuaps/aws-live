@@ -5,23 +5,21 @@
 	<link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='layout.css') }}">
 </head>
 <body>
-	<div class="topnav">
-		<a class="home">Employee Management System</a>
-		
+	<div class="topnav">	
 		<form action="/" autocomplete="on" method = "GET">
-			<button type="submit">HOME</button>
+			<a class="home">HOME</a>
 		</form>
 		<form action="/getemp" autocomplete="on" method = "GET">
-			<button type="submit">SEARCH EMPLOYEE</button>
+			<a class="home">SEARCH EMPLOYEE</a>
 		</form>
 		<form action="/toattendance" autocomplete="on" method = "POST">
-			<button type="submit">ATTENDANCE</button>
+			<a class="home">ATTENDANCE</a>
 		</form>
 		<form action="/topayroll" autocomplete="on" method = "POST">
-			<button type="submit">PAYROLL</button>
+			<a class="home">PAYROLL</a>
 		</form>
 		<form action="/tomanageemp" autocomplete="on" method = "POST">
-			<button type="submit">MANAGE EMPLOYEE</button>
+			<a class="home">MANAGE EMPLOYEE</a>
 		</form>
 	</div>
 
