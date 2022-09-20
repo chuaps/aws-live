@@ -16,7 +16,7 @@
         }
         
         tr:nth-child(even) {
-	  border: 1px solid #000000;
+          border: 1px solid #000000;  
           background-color: #dddddd;
         }
     </style>
@@ -37,12 +37,13 @@
                   <th>Primary Skill</th>
                   <th>Location</th>
                 </tr>
+                           
                 <tr>
-                  <td> {{ id }} </td>
-                  <td> {{ fname }} </td>
-                  <td> {{ lname }} </td>
-                  <td> {{ interest }} </td>
-                  <td> {{ location }} </td>
+                  <td> {{ id[i] }} </td>
+                  <td> {{ fname[i] }} </td>
+                  <td> {{ lname[i] }} </td>
+                  <td> {{ interest[i] }} </td>
+                  <td> {{ location[i] }} </td>
                 </tr>
 
             </table>
