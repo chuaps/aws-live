@@ -46,8 +46,8 @@ def ToGetEmp():
     return render_template('GetEmp.html')
 
 # Redirect Manage Employee
-@app.route("/tomanageemp", methods=['POST'])
-def ToGetEmp():
+@app.route("/tomanageemp", methods=['GET', 'POST'])
+def ToManEmp():
     return render_template('ManageEmployee.html')
 
 
