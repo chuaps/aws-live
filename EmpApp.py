@@ -145,7 +145,8 @@ def ListEmp():
             last_name = row[2]
             pri_skill = row[3]
             location = row[4]
-            return render_template('ListEmp.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location)   
+        
+        return render_template('ListEmp.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location)       
 
     except:
         print ("Error: unable to fecth data")
