@@ -10,10 +10,10 @@ html{
   background-color: rgb(217, 231, 252);
 }
 body{
-  width: 90%;
+  width: 100%;
   min-height: 100vh;
   margin: auto;
-  background-color: aliceblue;
+  background-color: whitesmoke;
   overflow-x: hidden;
 }
 
@@ -41,7 +41,7 @@ body{
   
 /* Add a color to the active/current link */
 .topnav a.active {
-    background-color: #04AA6D;
+    background-color: red;
     color: white;
 }
   
