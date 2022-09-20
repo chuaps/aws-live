@@ -38,20 +38,19 @@
                   <th>Location</th>
                 </tr>
 
-                                        
+              {% for row in results %}
                 <tr>
-                  <td> {{ id }} </td>
-                  <td> {{ fname }} </td>
-                  <td> {{ lname }} </td>
-                  <td> {{ interest }} </td>
-                  <td> {{ location }} </td>
+                  <td> {{ row[0] }} </td>
+                  <td> {{ row[1] }} </td>
+                  <td> {{ row[2] }} </td>
+                  <td> {{ row[3] }} </td>
+                  <td> {{ row[4] }} </td>
                 </tr>
+              {% endfor %}
                 
             </table>
 
-            {% for row in results %}
-                {{ row }} 
-            {% endfor %}
+            
 
 		</body>
 	
