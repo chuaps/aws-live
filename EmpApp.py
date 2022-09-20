@@ -165,7 +165,7 @@ def RemEmp():
         bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
 
         try:
-            s3.delete_object(Bucket='chuaphingswen-employee, Key=emp_image_file_name_in_s3)
+            s3.delete_object(Bucket='chuaphingswen-employee', Key=emp_image_file_name_in_s3)
             
         except Exception as e:
             return str(e)
