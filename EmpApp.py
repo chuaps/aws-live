@@ -167,18 +167,7 @@ def RemEmp():
             
             s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3)
             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
-            s3_location = (bucket_location['LocationConstraint'])
-
-            if s3_location is None:
-                s3_location = ''
-            else:
-                s3_location = '-' + s3_location
-
-            object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
-                s3_location,
-                custombucket,
-                emp_image_file_name_in_s3)
-
+            
             s3.delete_object(Bucket=bucket_location, Key=emp_image_file_name_in_s3)
         
         except Exception as e:
