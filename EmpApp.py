@@ -129,6 +129,7 @@ def FetchEmp():
 
     print("Employee Searched")
     return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=object_url)
+    
 
 @app.route("/listemp", methods=['GET'])
 def ListEmp():
@@ -150,8 +151,7 @@ def ListEmp():
 @app.route("/rememp", methods=['POST'])
 def RemEmp():
 
-    for emp_id in FetchEmp():
-        emp_id = emp_id
+    emp_id = request.form['emp_id']
     
     fetch_sql = "DELETE FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
