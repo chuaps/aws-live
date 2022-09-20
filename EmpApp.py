@@ -164,7 +164,7 @@ def RemEmp():
         s3 = boto3.resource('s3')
 
         try:
-            print("Data inserted in MySQL RDS... uploading image to S3...")
+            
             s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
             s3_location = (bucket_location['LocationConstraint'])
@@ -179,7 +179,7 @@ def RemEmp():
                 custombucket,
                 emp_image_file_name_in_s3)
 
-            s3.delete_object(object_url)
+            s3.delete_object(Bucket=bucket_location, Key=emp_image_file_name_in_s3)
         
         except Exception as e:
             return str(e)
