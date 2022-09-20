@@ -149,13 +149,13 @@ def ListEmp():
     finally:
         cursor.close()
 
-    return render_template('ListEmp.html', emp_id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location)
+    return render_template('ListEmp.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location)
 
 @app.route("/rememp", methods=['POST'])
 def RemEmp():
 
-    for emp_id in ListEmp():
-        emp_id = emp_id
+    for id in ListEmp():
+        emp_id = id
     
     fetch_sql = "DELETE FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
