@@ -154,9 +154,6 @@ def ListEmp():
 
 @app.route("/rememp", methods=['POST'])
 def RemEmp():
-
-    for emp_id in FetchEmp():
-        emp_id = emp_id
     
     fetch_sql = "DELETE FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
