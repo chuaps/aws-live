@@ -107,7 +107,7 @@ def FetchEmp():
         emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
 
         try:
-            s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3)
+            s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
             s3_location = (bucket_location['LocationConstraint'])
 
@@ -165,7 +165,7 @@ def RemEmp():
 
         try:
             
-            s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
+            s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3)
             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
             s3_location = (bucket_location['LocationConstraint'])
 
