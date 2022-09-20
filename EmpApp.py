@@ -30,6 +30,27 @@ def home():
 def about():
     return render_template('')
 
+# Redirect Add Employee
+@app.route("/toAddEmp", methods=['GET', 'POST'])
+def ToAddEmp():
+    return render_template('AddEmp.html')
+
+# Redirect Remove Employee
+@app.route("/toRemEmp", methods=['GET', 'POST'])
+def ToRemEmp():
+    return render_template('AddEmp.html')
+
+# Redirect Search Employee
+@app.route("/toGetEmp", methods=['POST'])
+def ToGetEmp():
+    return render_template('GetEmp.html')
+
+# Redirect Manage Employee
+@app.route("/tomanageemp", methods=['POST'])
+def ToGetEmp():
+    return render_template('ManageEmployee.html')
+
+
 # Add Employee Function
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
@@ -80,9 +101,7 @@ def AddEmp():
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
 
-@app.route("/getemp", methods=['POST'])
-def GetEmp():
-    return render_template('GetEmp.html')
+
 
 @app.route("/fetchemp", methods=['POST'])
 def FetchEmp():
