@@ -3,6 +3,47 @@
 <head>
 	<title>Manage Employee</title>
 	<link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='layout.css') }}">
+	<style>
+		.button {
+		  display: inline-block;
+		  border-radius: 4px;
+		  background-color: #f4511e;
+		  border: none;
+		  color: #FFFFFF;
+		  text-align: center;
+		  font-size: 30px;
+		  padding: 20px;
+		  width: 40%;
+		  transition: all 0.5s;
+		  cursor: pointer;
+		  margin: 5px;
+		}
+		
+		.button span {
+		  cursor: pointer;
+		  display: inline-block;
+		  position: relative;
+		  transition: 0.5s;
+		}
+		
+		.button span:after {
+		  content: '\00bb';
+		  position: absolute;
+		  opacity: 0;
+		  top: 0;
+		  right: -20px;
+		  transition: 0.5s;
+		}
+		
+		.button:hover span {
+		  padding-right: 25px;
+		}
+		
+		.button:hover span:after {
+		  opacity: 1;
+		  right: 0;
+		}
+		</style>
 </head>
 <body>
 	<div class="topnav">	
@@ -24,22 +65,22 @@
 	</div>
 
 
-	<h1>Manage Employee</h1><br><br><br>
+	<h1>Manage Employee</h1><br>
 
 
-	<div style="width: fit-content; margin: auto;">
+	<div>
 	<form action="/toAddEmp" autocomplete="on" method = "POST" style="width: fit-content; margin: auto;">
 		<button type="submit">ADD EMPLOYEE</button>
-	</form><br><br><br><br>
+	</form><br>
 	<form action="/toRemEmp" autocomplete="on" method = "POST" style="width: fit-content; margin: auto;">
 		<button type="submit">REMOVE EMPLOYEE</button>
-	</form><br><br><br><br>
+	</form><br>
 	<form action="/tosearcheditEmp" autocomplete="on" method = "GET" style="width: fit-content; margin: auto;">
 		<button type="submit">EDIT EMPLOYEE</button>
-	</form><br><br><br><br>
+	</form><br>
 	<form action="/toGetEmp" autocomplete="on" method = "POST" style="width: fit-content; margin: auto;">
 		<button type="submit">SEARCH EMPLOYEE</button>
-	</form><br><br><br><br>
+	</form><br>
 
 </div>
 </body>
