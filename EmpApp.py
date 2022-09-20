@@ -20,17 +20,17 @@ db_conn = connections.Connection(
 output = {}
 table = 'employee'
 
-
+# home
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    return render_template('AddEmp.html')
+    return render_template('Home.html')
 
-
+# about
 @app.route("/about", methods=['POST'])
 def about():
-    return render_template('www.intellipaat.com')
+    return render_template('')
 
-
+# Add Employee Function
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
     emp_id = request.form['emp_id']
@@ -172,7 +172,7 @@ def RemEmp():
     finally:
         cursor.close()  
 
-    return render_template('RemoveSuccessful.html', emp_id=emp_id)
+    return render_template('RemEmpOutput.html', emp_id=emp_id)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
