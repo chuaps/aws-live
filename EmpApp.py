@@ -146,12 +146,12 @@ def ListEmp():
             pri_skill = row[3]
             location = row[4]
 
-        employee = [emp_id, first_name, last_name, pri_skill, location]
+        
 
     finally:
         cursor.close()
 
-    return render_template('ListEmp.html', employee=employee)
+    return render_template('ListEmp.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location)
 
 @app.route("/rememp", methods=['POST'])
 def RemEmp():
