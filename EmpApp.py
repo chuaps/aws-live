@@ -155,8 +155,6 @@ def ListEmp():
 @app.route("/rememp", methods=['POST'])
 def RemEmp():
 
-    emp_id = ""
-
     for emp_id in FetchEmp():
         emp_id = emp_id
     
@@ -166,7 +164,6 @@ def RemEmp():
     try:
         cursor.execute(fetch_sql, (emp_id))
         db_conn.commit()
-
         rowcount = cursor.rowcount
 
     finally:
