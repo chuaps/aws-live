@@ -145,7 +145,7 @@ def ListEmp():
             last_name = row[2]
             pri_skill = row[3]
             location = row[4]
-            emp_image_file = row[5]   
+           
 
     finally:
         cursor.close()
@@ -155,7 +155,7 @@ def ListEmp():
 @app.route("/rememp", methods=['POST'])
 def RemEmp():
 
-    for emp_id in ListEmp():
+    for emp_id in FetchEmp():
         emp_id = emp_id
     
     fetch_sql = "DELETE FROM employee WHERE emp_id = %s"
