@@ -55,6 +55,38 @@ def ToGetEmp():
 def ToManEmp():
     return render_template('ManageEmployee.html')
 
+# Redirect Attendance
+@app.route("/toattendance", methods=['GET', 'POST'])
+def ToAttendance():
+    return render_template('Attendance.html')
+
+
+# Attendance
+@app.route("/addattendance", methods=['POST'])
+def addAttend():
+    duty_id = request.form['duty_id']
+    emp_id = request.form['emp_id']
+    date = request.form['date']
+    duration = request.form['duration']
+
+    insert_attendance = "INSERT INTO duty VALUES (%s, %s, %s, %s)"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(insert_attendance, (duty_id, emp_id, date, duration))
+        db_conn.commit()
+
+    except:
+        print ("Error: unable to fecth data")
+
+    return render_template('AttendanceOutput.html', id=emp_id, date=date)
+
+@app.route("/viewattendance", methods=['POST'])
+def getAllAttend():
+    cur = db_conn.cursor()
+    cur.execute("SELECT * FROM duty")
+    data = cur.fetchall()
+    return render_template('AttendanceAllOutput.html', data=data) 
 
 # Add Employee Function
 @app.route("/addemp", methods=['POST'])
