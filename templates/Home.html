@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	<link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='layout.css') }}">
+</head>
+<body>
+	<div class="topnav">	
+		<form action="/" autocomplete="on" method = "GET">
+			<button type="submit">HOME</button>
+		</form>
+		<form action="/listemp" autocomplete="on" method = "GET">
+            <button type="submit">EMPLOYEE LIST</button>
+		</form>
+		<form action="/toattendance" autocomplete="on" method = "POST">
+			<button type="submit">ATTENDANCE</button>
+		</form>
+		<form action="/tomanageemp" autocomplete="on" method = "POST">
+			<button type="submit">MANAGE EMPLOYEE</button>
+		</form>
+	</div>
+
+    <h1>WELCOME TO EMPLOYEE MANAGEMENT SYSTEM</h1>
+	
+
+	
+</body>
+</head>
+</html>

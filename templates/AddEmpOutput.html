@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Emp Output</title>
+	<link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='layout.css') }}">
+</head>
+<center>
+	
+		<body>
+			<div class="topnav">	
+				<form action="/" autocomplete="on" method = "GET">
+					<button type="submit">HOME</button>
+				</form>
+				<form action="/listemp" autocomplete="on" method = "GET">
+					<button type="submit">EMPLOYEE LIST</button>
+				</form>
+				<form action="/toattendance" autocomplete="on" method = "POST">
+					<button type="submit">ATTENDANCE</button>
+				</form>
+				<form action="/tomanageemp" autocomplete="on" method = "POST">
+					<button type="submit">MANAGE EMPLOYEE</button>
+				</form>
+			</div>
+
+			<h1>SAVE SUCCESSFUL</h1>
+
+			<h2 style="color: grey;">Following Employee has been added to the database</h2>
+			<h2 style="color: rgb(26, 1, 88);">{{ name }}</h2>
+			
+				<form action="/" autocomplete="on" method = "GET">
+
+					<button class="button" width="500px" type="submit">Return Home</button><br><br>
+
+				</form>
+		</body>
+	
+</center>
+
+<body>
+
+</body>
+</html>

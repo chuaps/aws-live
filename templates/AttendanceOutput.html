@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Attendance Employee Information</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='layout.css') }}">
+</head>
+
+<body>
+    <div class="topnav">
+        <form action="/" autocomplete="on" method="GET">
+            <button type="submit">HOME</button>
+        </form>
+        <form action="/listemp" autocomplete="on" method="GET">
+            <button type="submit">EMPLOYEE LIST</button>
+        </form>
+        <form action="/toattendance" autocomplete="on" method="POST">
+            <button type="submit">ATTENDANCE</button>
+        </form>
+        <form action="/tomanageemp" autocomplete="on" method="POST">
+            <button type="submit">MANAGE EMPLOYEE</button>
+        </form>
+    </div>
+
+    <h1>EMPLOYEE ATTENDANCE INFORMATION</h1>
+    <h2>DUTY INFORMATION WAS SAVED SUCCESSFULLY</h2>
+    <h2 style="color: grey;">Following Employee Attendance Has Been Added To The Database</h2>
+    <p style="color: #333;">Employee ID: {{ id }}</p>
+    <p style="color: #333;">Date: {{ date }}</p>
+
+    <form action="/" autocomplete="on" method="GET">
+
+        <button class="button" width="500px" type="submit">Return Home</button><br><br>
+
+    </form>
+</body>
+</head>
+
+</html>
