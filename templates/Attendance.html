@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Attendance Employee Information</title>
-    <link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='layout.css') }}">
+    <title>Attendance Employee Information</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='layout.css') }}">
 </head>
+
 <body>
-	<div class="topnav">	
-		<form action="/" autocomplete="on" method = "GET">
-			<button type="submit">HOME</button>
-		</form>
-		<form action="/listemp" autocomplete="on" method = "GET">
+    <div class="topnav">
+        <form action="/" autocomplete="on" method="GET">
+            <button type="submit">HOME</button>
+        </form>
+        <form action="/listemp" autocomplete="on" method="GET">
             <button type="submit">EMPLOYEE LIST</button>
-		</form>
-		<form action="/toattendance" autocomplete="on" method = "POST">
-			<button type="submit">ATTENDANCE</button>
-		</form>
-		<form action="/tomanageemp" autocomplete="on" method = "POST">
-			<button type="submit">MANAGE EMPLOYEE</button>
-		</form>
-	</div>
-	
-	<h1>EMPLOYEE ATTENDANCE</h1>
+        </form>
+        <form action="/toattendance" autocomplete="on" method="POST">
+            <button type="submit">ATTENDANCE</button>
+        </form>
+        <form action="/tomanageemp" autocomplete="on" method="POST">
+            <button type="submit">MANAGE EMPLOYEE</button>
+        </form>
+    </div>
+
+    <h1>EMPLOYEE ATTENDANCE</h1>
 
     <div class="container">
-        <form action="/addattendance" autocomplete="on" method = "POST" enctype="multipart/form-data">
+        <form action="/addattendance" autocomplete="on" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-25">
-                  <label>Duty ID:</label>
+                    <label>Duty ID:</label>
                 </div>
                 <div class="col-75">
                     <input type="number" name="duty_id" autofocus size="40">
@@ -34,7 +36,7 @@
             </div>
             <div class="row">
                 <div class="col-25">
-                  <label>Employee ID:</label>
+                    <label>Employee ID:</label>
                 </div>
                 <div class="col-75">
                     <input type="number" name="emp_id">
@@ -42,25 +44,22 @@
             </div>
             <div class="row">
                 <div class="col-25">
-                  <label>Date:</label>
+                    <label>Date:</label>
                 </div>
                 <div class="col-75">
-                    <input type="date", " name="date">
+                    <input type="date" , " name=" date">
                 </div>
             </div>
             <div class="row">
                 <div class="col-25">
-                  <label>Duration:</label>
+                    <label>Duration:</label>
                 </div>
                 <div class="col-75">
-                    <input type="number", " name="duration">
+                    <input type="number" , " name=" duration">
                 </div>
             </div>
-            <button type="submit">UPDATE DATABASE</button>
+            <button class="button" type="submit">ADD ATTENDANCE</button>
         </form>
-        <form action="/viewattendance" autocomplete="on" method = "POST"><br><br>
-			<button type="submit">ATTENDANCE INFORMATION</button>
-		</form>
     </div>
 
 </body>
