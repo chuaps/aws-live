@@ -86,7 +86,7 @@ def getAllAttend():
     cur = db_conn.cursor()
     cur.execute("SELECT * FROM duty")
     data = cur.fetchall()
-    return render_template('AttendanceAllOutput.html', data=data) 
+    return render_template('ListAttendance.html', data=data) 
 
 # Add Employee Function
 @app.route("/addemp", methods=['POST'])
