@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Employee Information</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='layout.css') }}">
+</head>
+
+<body>
+	<h1>Employee Information</h1>
+
+	<form>
+		<div class="container">
+			<div class="row">
+				<div class="col-25">
+					<label>Employee ID:</label>
+				</div>
+				<div class="col-75">
+					{{ id }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label>First Name:</label>
+				</div>
+				<div class="col-75">
+					{{ fname }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label>Primary Interest:</label>
+				</div>
+				<div class="col-75">
+					{{ interest }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label>Location:</label>
+				</div>
+				<div class="col-75">
+					{{ location }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label>Image URL:</label>
+				</div>
+				<div class="col-75">
+					{{ image_url }}
+				</div>
+			</div>
+			<br>
+			<button class="button" type="submit" formaction="/">RETURN</button>
+		</div>
+	</form>
+</body>
+
+</html>
