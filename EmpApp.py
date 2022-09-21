@@ -224,7 +224,7 @@ def EditEmp():
     location = request.form['location']
     emp_image_file = request.files['emp_image_file']
 
-    fetch_sql = "UPDATE employee SET emp_id = %s, first_name=%s, last_name=%s, pri_skill=%s, location=%s, emp_image_file=%s where emp_id = %s"
+    fetch_sql = "UPDATE employee SET first_name=%s, last_name=%s, pri_skill=%s, location=%s, emp_image_file=%s where emp_id = %s"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
@@ -232,7 +232,7 @@ def EditEmp():
 
     try:
 
-        cursor.execute(fetch_sql, (emp_id, first_name, last_name, pri_skill, location, emp_image_file))
+        cursor.execute(fetch_sql, (first_name, last_name, pri_skill, location, emp_image_file, emp_id))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
