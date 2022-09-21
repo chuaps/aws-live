@@ -82,11 +82,11 @@ def addAttend():
     return render_template('AttendanceOutput.html', id=emp_id, date=date)
 
 @app.route("/viewattendance", methods=['POST'])
-def getAllAttend():
+def ViewAttend():
     cur = db_conn.cursor()
     cur.execute("SELECT * FROM duty")
-    data = cur.fetchall()
-    return render_template('ListAttendance.html', data=data) 
+    results = cur.fetchall()
+    return render_template('ListAttendance.html', results=results) 
 
 # Add Employee Function
 @app.route("/addemp", methods=['POST'])
