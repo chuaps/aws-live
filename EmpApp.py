@@ -40,6 +40,11 @@ def ToAddEmp():
 def ToRemEmp():
     return render_template('RemEmp.html')
 
+# Redirect Edit Employee
+@app.route("/toEditEmp", methods=['GET', 'POST'])
+def ToEditEmp():
+    return render_template('EditEmp.html')
+
 # Redirect Search Employee
 @app.route("/toGetEmp", methods=['POST'])
 def ToGetEmp():
@@ -192,6 +197,72 @@ def RemEmp():
         cursor.close()  
 
     return render_template('RemEmpOutput.html', emp_id=emp_id)
+
+@app.route("/searcheditemp", methods=['POST', 'GET'])
+def SearchEditEmp():
+    emp_id = request.form['emp_id']
+
+    fetch_sql = "SELECT * FROM employee WHERE emp_id = %s"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(fetch_sql, (emp_id))
+        db_conn.commit()
+        results = cursor.fetchall()
+
+    except:
+        print ("Error: unable to fecth data")
+
+    return render_template('EditEmpForm.html', results=results)
+
+@app.route("/editemp", methods=['POST', 'GET'])
+def EditEmp():
+    emp_id = request.form['emp_id']
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    pri_skill = request.form['pri_skill']
+    location = request.form['location']
+    emp_image_file = request.files['emp_image_file']
+
+    fetch_sql = "UPDATE employee SET first_name=%s, last_name=%s, pri_skill=%s, location=%s, emp_image_file=%s where emp_id = %s"
+    cursor = db_conn.cursor()
+
+    if emp_image_file.filename == "":
+        return "Please select a file"
+
+    try:
+
+        cursor.execute(fetch_sql, (emp_id, first_name, last_name, pri_skill, location, emp_image_file))
+        db_conn.commit()
+        emp_name = "" + first_name + " " + last_name
+        # Uplaod image file in S3 #
+        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+        s3 = boto3.resource('s3')
+
+        try:
+            
+            s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
+            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+            s3_location = (bucket_location['LocationConstraint'])
+
+            if s3_location is None:
+                s3_location = ''
+            else:
+                s3_location = '-' + s3_location
+
+            object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
+                s3_location,
+                custombucket,
+                emp_image_file_name_in_s3)
+
+        except Exception as e:
+            return str(e)
+
+    finally:
+        cursor.close()
+
+    print("all modification done...")
+    return render_template('EditEmpOutput.html', fname=first_name,lname=last_name)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
