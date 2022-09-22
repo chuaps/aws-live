@@ -321,7 +321,7 @@ def RemAttend():
 
 # Edit Attendance
 @app.route("/searcheditattendance", methods=['POST', 'GET'])
-def SearchEditEmp():
+def SearchEditAttend():
     duty_id = request.form['duty_id']
 
     fetch_sql = "SELECT * FROM duty WHERE duty_id = %s"
@@ -338,7 +338,7 @@ def SearchEditEmp():
     return render_template('EditAttendanceForm.html', results=results)
 
 @app.route("/editattendance", methods=['POST', 'GET'])
-def EditEmp():
+def EditAttend():
     duty_id = request.form['duty_id']
     emp_id = request.form['emp_id']
     date = request.form['date']
@@ -356,7 +356,7 @@ def EditEmp():
         cursor.close()
 
     print("all modification done...")
-    return render_template('EditEmpOutput.html', duty_id=duty_id)
+    return render_template('EditAttendanceOutput.html', duty_id=duty_id)
 
 
 if __name__ == '__main__':
