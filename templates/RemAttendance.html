@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Delete Employee Information</title>
+    <title>Delete Attendance Information</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='layout.css') }}">
 </head>
 
@@ -22,20 +22,20 @@
 		</form>
 	</div>
 
-    <h1>Remove Employee</h1>
+    <h1>Remove Attendance</h1>
 
     <div class="container">
-        <form action="/rememp" autocomplete="on" method="POST">
+        <form action="/remattendance" autocomplete="on" method="POST">
             <div class="row">
                 <div class="col-25">
-                    <label>Enter Employee ID:</label>
+                    <label>Enter Duty ID:</label>
                 </div>
                 <div class="col-75">
-                    <input type="number" name="emp_id" autofocus placeholder="001">
+                    <input type="number" name="duty_id" autofocus placeholder="001">
                 </div>
             </div>
-            <form action="/rememp" autocomplete="on" method="POST">
-                <button class="button" width="150px" type="submit">REMOVE EMPLOYEE</button>
+            <form action="/remattendance" autocomplete="on" method="POST">
+                <button class="button" width="150px" type="submit">REMOVE DUTY</button>
             </form>
         </form>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Manage Employee</title>
+	<title>Manage Attendance</title>
 	<link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='layout.css') }}">
 	<style>
 		.button {
@@ -46,19 +46,18 @@
 
 
 	<div>
-	<form action="/toAddEmp" autocomplete="on" method = "POST" style="width: fit-content; margin: auto;">
-		<button class="button" style="vertical-align:middle" type="submit">ADD EMPLOYEE</button>
+	<form action="/toattendance" autocomplete="on" method = "POST" style="width: fit-content; margin: auto;">
+		<button class="button" style="vertical-align:middle" type="submit">ADD ATTENDANCE</button>
 	</form><br>
 	<form action="/toRemEmp" autocomplete="on" method = "POST" style="width: fit-content; margin: auto;">
-		<button class="button" style="vertical-align:middle" type="submit">REMOVE EMPLOYEE</button>
+		<button class="button" style="vertical-align:middle" type="submit">REMOVE ATTENDANCE</button>
 	</form><br>
 	<form action="/toEditEmp" autocomplete="on" method = "GET" style="width: fit-content; margin: auto;">
-		<button class="button" style="vertical-align:middle" type="submit">EDIT EMPLOYEE</button>
+		<button class="button" style="vertical-align:middle" type="submit">EDIT ATTENDANCE</button>
 	</form><br>
-	<form action="/toGetEmp" autocomplete="on" method = "POST" style="width: fit-content; margin: auto;">
-		<button class="button" style="vertical-align:middle" type="submit">SEARCH EMPLOYEE</button>
+	<form action="/viewattendance" autocomplete="on" method = "POST" style="width: fit-content; margin: auto;">
+		<button class="button" style="vertical-align:middle" type="submit">LIST ATTENDANCE</button>
 	</form><br>
-	
 
 </div>
 </body>

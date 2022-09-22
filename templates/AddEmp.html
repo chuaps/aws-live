@@ -2,11 +2,12 @@
 <html>
 
 <head>
-	<title>Employee Information</title>
+	<title>Add Employee Information</title>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='layout.css') }}">
 </head>
 
 <body>
+
 	<div class="topnav">	
 		<form action="/" autocomplete="on" method = "GET">
 			<button type="submit">HOME</button>
@@ -21,17 +22,17 @@
 			<button type="submit">MANAGE EMPLOYEE</button>
 		</form>
 	</div>
-	
-	<h1>Employee Information</h1>
 
-	<form>
-		<div class="container">
+	<h2>Add Employee Form</h2>
+
+	<div class="container">
+		<form action="/addemp" autocomplete="on" method="POST" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-25">
 					<label>Employee ID:</label>
 				</div>
 				<div class="col-75">
-					{{ id }}
+					<input type="number" name="emp_id" autofocus size="40" placeholder="001">
 				</div>
 			</div>
 			<div class="row">
@@ -39,15 +40,23 @@
 					<label>First Name:</label>
 				</div>
 				<div class="col-75">
-					{{ fname }}
+					<input type="text" name="first_name" placeholder="Jacky">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label>Primary Interest:</label>
+					<label>Last Name:</label>
 				</div>
 				<div class="col-75">
-					{{ interest }}
+					<input type="text" name="last_name" placeholder="Lim">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label>Primary Skills:</label>
+				</div>
+				<div class="col-75">
+					<input type="text" name="pri_skill" placeholder="Cloud">
 				</div>
 			</div>
 			<div class="row">
@@ -55,21 +64,22 @@
 					<label>Location:</label>
 				</div>
 				<div class="col-75">
-					{{ location }}
+					<input type="text" name="location" placeholder="Kuala Lumpur">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label>Image URL:</label>
+					<label>Image:</label>
 				</div>
 				<div class="col-75">
-					{{ image_url }}
+					<input type=file name="emp_image_file">
 				</div>
 			</div>
-			<br>
-			<button class="button" type="submit" formaction="/">RETURN</button>
-		</div>
-	</form>
+
+			<button class="button" type="submit">ADD EMPLOYEE</button>
+
+		</form>
+	</div>
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Get Employee Information</title>
+	<title>Edit Attendance</title>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='layout.css') }}">
 </head>
 
@@ -22,21 +22,22 @@
 		</form>
 	</div>
 
-	<h1>Search Employee</h1>
+	<h1>EDIT Attendance</h1>
+	<h2>Please Key In Duty ID To Search Duty You Wish To Edit</h2>
 
 	<div class="container">
-		<form action="/fetchemp" autocomplete="on" method="POST">
+		<form action="/searcheditattendance" autocomplete="on" method="POST">
 			<div class="row">
 				<div class="col-25">
-					<label>Enter Employee ID:</label>
+					<label>Enter Duty ID:</label>
 				</div>
 				<div class="col-75">
-					<input type="number" name="emp_id" autofocus placeholder="001">
+					<input type="number" name="duty_id" autofocus placeholder="001">
 				</div>
 			</div>
 			<br>
-			<form action="/fetchemp" autocomplete="on" method="POST">
-				<button class="button" width="150px" type="submit">SEARCH EMPLOYEE</button>
+			<form action="/searcheditattendance" autocomplete="on" method="POST">
+				<button class="button" width="150px" type="submit">SEARCH DUTY</button>
 			</form>
 		</form>
 	</div>
