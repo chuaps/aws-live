@@ -57,13 +57,23 @@ def ToManEmp():
 
 # Redirect Attendance
 @app.route("/tomanageattendance", methods=['GET', 'POST'])
-def ToAttendance():
+def ToManageAttendance():
     return render_template('ManageAttendance.html')
 
 # Redirect Attendance
-@app.route("/toattendance", methods=['GET', 'POST'])
+@app.route("/toAttendance", methods=['GET', 'POST'])
 def ToAttendance():
     return render_template('Attendance.html')
+
+# Redirect Attendance
+@app.route("/toRemAttendance", methods=['GET', 'POST'])
+def ToRemAttendance():
+    return render_template('RemAttendance.html')
+
+# Redirect Attendance
+@app.route("/toEditAttendance", methods=['GET', 'POST'])
+def ToEditAttendance():
+    return render_template('EditAttendance.html')
 
 # Add Employee Function
 @app.route("/addemp", methods=['POST'])
